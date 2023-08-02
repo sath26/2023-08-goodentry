@@ -1,0 +1,1508 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "name": "getAssetPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "priceX8",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nullToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "35": "contracts/tests/NullOracle.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/tests/NullOracle.sol",
+    "exportedSymbols": {
+      "NullOracle": [
+        6414
+      ]
+    },
+    "id": 6415,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 6384,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:23:35"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "NullOracle",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 6385,
+          "nodeType": "StructuredDocumentation",
+          "src": "64:45:35",
+          "text": "@notice Oracle always return 0 for tests"
+        },
+        "fullyImplemented": true,
+        "id": 6414,
+        "linearizedBaseContracts": [
+          6414
+        ],
+        "name": "NullOracle",
+        "nameLocation": "118:10:35",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "796bcf7b",
+            "id": 6387,
+            "mutability": "mutable",
+            "name": "nullToken",
+            "nameLocation": "148:9:35",
+            "nodeType": "VariableDeclaration",
+            "scope": 6414,
+            "src": "133:24:35",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 6386,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "133:7:35",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6396,
+              "nodeType": "Block",
+              "src": "191:28:35",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 6394,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 6392,
+                      "name": "nullToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6387,
+                      "src": "197:9:35",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 6393,
+                      "name": "token",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6389,
+                      "src": "209:5:35",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "197:17:35",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 6395,
+                  "nodeType": "ExpressionStatement",
+                  "src": "197:17:35"
+                }
+              ]
+            },
+            "id": 6397,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6390,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6389,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "184:5:35",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6397,
+                  "src": "176:13:35",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6388,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "176:7:35",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "175:15:35"
+            },
+            "returnParameters": {
+              "id": 6391,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "191:0:35"
+            },
+            "scope": 6414,
+            "src": "164:55:35",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 6412,
+              "nodeType": "Block",
+              "src": "297:48:35",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 6406,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 6404,
+                      "name": "token",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6399,
+                      "src": "307:5:35",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "!=",
+                    "rightExpression": {
+                      "id": 6405,
+                      "name": "nullToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6387,
+                      "src": "316:9:35",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "307:18:35",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 6411,
+                  "nodeType": "IfStatement",
+                  "src": "303:37:35",
+                  "trueBody": {
+                    "expression": {
+                      "id": 6409,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftHandSide": {
+                        "id": 6407,
+                        "name": "priceX8",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 6402,
+                        "src": "327:7:35",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "Assignment",
+                      "operator": "=",
+                      "rightHandSide": {
+                        "hexValue": "316538",
+                        "id": 6408,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "337:3:35",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_100000000_by_1",
+                          "typeString": "int_const 100000000"
+                        },
+                        "value": "1e8"
+                      },
+                      "src": "327:13:35",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 6410,
+                    "nodeType": "ExpressionStatement",
+                    "src": "327:13:35"
+                  }
+                }
+              ]
+            },
+            "functionSelector": "b3596f07",
+            "id": 6413,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAssetPrice",
+            "nameLocation": "234:13:35",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6400,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6399,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "256:5:35",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6413,
+                  "src": "248:13:35",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6398,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "248:7:35",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "247:15:35"
+            },
+            "returnParameters": {
+              "id": 6403,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6402,
+                  "mutability": "mutable",
+                  "name": "priceX8",
+                  "nameLocation": "289:7:35",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6413,
+                  "src": "284:12:35",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6401,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "284:4:35",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "283:14:35"
+            },
+            "scope": 6414,
+            "src": "225:120:35",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 6415,
+        "src": "109:238:35",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:308:35"
+  },
+  "bytecode": "608060405234801561001057600080fd5b5060405161019a38038061019a83398101604081905261002f91610054565b600080546001600160a01b0319166001600160a01b0392909216919091179055610084565b60006020828403121561006657600080fd5b81516001600160a01b038116811461007d57600080fd5b9392505050565b610107806100936000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063796bcf7b146037578063b3596f07146066575b600080fd5b6000546049906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6075607136600460a3565b6082565b604051908152602001605d565b600080546001600160a01b03838116911614609e57506305f5e1005b919050565b60006020828403121560b457600080fd5b81356001600160a01b038116811460ca57600080fd5b939250505056fea2646970667358221220d73c4cbd9c2e0cc0a08e6854eec9b32f0e9ce02b4a4814b1fd8381fc820c1a9164736f6c63430008130033",
+  "bytecodeSha1": "cdcfbf3dfa884c77bcf1b1787d05b86d73af1f00",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.19+commit.7dd6d404"
+  },
+  "contractName": "NullOracle",
+  "coverageMap": {
+    "branches": {
+      "35": {
+        "NullOracle.getAssetPrice": {
+          "1": [
+            307,
+            325,
+            false
+          ]
+        }
+      }
+    },
+    "statements": {
+      "35": {
+        "NullOracle.getAssetPrice": {
+          "0": [
+            327,
+            340
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "6080604052348015600f57600080fd5b506004361060325760003560e01c8063796bcf7b146037578063b3596f07146066575b600080fd5b6000546049906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6075607136600460a3565b6082565b604051908152602001605d565b600080546001600160a01b03838116911614609e57506305f5e1005b919050565b60006020828403121560b457600080fd5b81356001600160a01b038116811460ca57600080fd5b939250505056fea2646970667358221220d73c4cbd9c2e0cc0a08e6854eec9b32f0e9ce02b4a4814b1fd8381fc820c1a9164736f6c63430008130033",
+  "deployedSourceMap": "109:238:35:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;133:24;;;;;-1:-1:-1;;;;;133:24:35;;;;;;-1:-1:-1;;;;;178:32:58;;;160:51;;148:2;133:18;:24:35;;;;;;;;225:120;;;;;;:::i;:::-;;:::i;:::-;;;659:25:58;;;647:2;632:18;225:120:35;513:177:58;225:120:35;284:12;316:9;;-1:-1:-1;;;;;307:18:35;;;316:9;;307:18;303:37;;-1:-1:-1;337:3:35;303:37;225:120;;;:::o;222:286:58:-;281:6;334:2;322:9;313:7;309:23;305:32;302:52;;;350:1;347;340:12;302:52;376:23;;-1:-1:-1;;;;;428:31:58;;418:42;;408:70;;474:1;471;464:12;408:70;497:5;222:286;-1:-1:-1;;;222:286:58:o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "notice": "Oracle always return 0 for tests",
+    "version": 1
+  },
+  "offset": [
+    109,
+    347
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x32 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x796BCF7B EQ PUSH1 0x37 JUMPI DUP1 PUSH4 0xB3596F07 EQ PUSH1 0x66 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x49 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH1 0x75 PUSH1 0x71 CALLDATASIZE PUSH1 0x4 PUSH1 0xA3 JUMP JUMPDEST PUSH1 0x82 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD PUSH1 0x5D JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP4 DUP2 AND SWAP2 AND EQ PUSH1 0x9E JUMPI POP PUSH4 0x5F5E100 JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH1 0xB4 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH1 0xCA JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xD7 EXTCODECOPY 0x4C 0xBD SWAP13 0x2E 0xC 0xC0 LOG0 DUP15 PUSH9 0x54EEC9B32F0E9CE02B 0x4A BASEFEE EQ 0xB1 REVERT DUP4 DUP2 0xFC DUP3 0xC BYTE SWAP2 PUSH5 0x736F6C6343 STOP ADDMOD SGT STOP CALLER ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "MSTORE",
+      "path": "35"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "CALLVALUE",
+      "path": "35"
+    },
+    "6": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "DUP1",
+      "path": "35"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "ISZERO",
+      "path": "35"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0xF"
+    },
+    "10": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "JUMPI",
+      "path": "35"
+    },
+    "11": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x0"
+    },
+    "13": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "DUP1",
+      "path": "35"
+    },
+    "14": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "REVERT",
+      "path": "35"
+    },
+    "15": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "16": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "POP",
+      "path": "35"
+    },
+    "17": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x4"
+    },
+    "19": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "CALLDATASIZE",
+      "path": "35"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "LT",
+      "path": "35"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x32"
+    },
+    "23": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "JUMPI",
+      "path": "35"
+    },
+    "24": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x0"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "CALLDATALOAD",
+      "path": "35"
+    },
+    "27": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0xE0"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "SHR",
+      "path": "35"
+    },
+    "30": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "DUP1",
+      "path": "35"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH4",
+      "path": "35",
+      "value": "0x796BCF7B"
+    },
+    "36": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "EQ",
+      "path": "35"
+    },
+    "37": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x37"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "JUMPI",
+      "path": "35"
+    },
+    "40": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "DUP1",
+      "path": "35"
+    },
+    "41": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH4",
+      "path": "35",
+      "value": "0xB3596F07"
+    },
+    "46": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "EQ",
+      "path": "35"
+    },
+    "47": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x66"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "JUMPI",
+      "path": "35"
+    },
+    "50": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "51": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x0"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "DUP1",
+      "path": "35"
+    },
+    "54": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        109,
+        347
+      ],
+      "op": "REVERT",
+      "path": "35"
+    },
+    "55": {
+      "offset": [
+        133,
+        157
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "56": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x0"
+    },
+    "58": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "SLOAD",
+      "path": "35"
+    },
+    "59": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x49"
+    },
+    "61": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "SWAP1",
+      "path": "35"
+    },
+    "62": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "64": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "66": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "68": {
+      "op": "SHL"
+    },
+    "69": {
+      "op": "SUB"
+    },
+    "70": {
+      "offset": [
+        133,
+        157
+      ],
+      "op": "AND",
+      "path": "35"
+    },
+    "71": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "DUP2",
+      "path": "35"
+    },
+    "72": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "JUMP",
+      "path": "35"
+    },
+    "73": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "74": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x40"
+    },
+    "76": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "MLOAD",
+      "path": "35"
+    },
+    "77": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "79": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "81": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "83": {
+      "op": "SHL"
+    },
+    "84": {
+      "op": "SUB"
+    },
+    "85": {
+      "op": "SWAP1"
+    },
+    "86": {
+      "op": "SWAP2"
+    },
+    "87": {
+      "op": "AND"
+    },
+    "88": {
+      "op": "DUP2"
+    },
+    "89": {
+      "op": "MSTORE"
+    },
+    "90": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "92": {
+      "op": "ADD"
+    },
+    "93": {
+      "offset": [
+        133,
+        157
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "94": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x40"
+    },
+    "96": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "MLOAD",
+      "path": "35"
+    },
+    "97": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "DUP1",
+      "path": "35"
+    },
+    "98": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "SWAP2",
+      "path": "35"
+    },
+    "99": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "SUB",
+      "path": "35"
+    },
+    "100": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "SWAP1",
+      "path": "35"
+    },
+    "101": {
+      "fn": null,
+      "offset": [
+        133,
+        157
+      ],
+      "op": "RETURN",
+      "path": "35"
+    },
+    "102": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "103": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x75"
+    },
+    "105": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x71"
+    },
+    "107": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "CALLDATASIZE",
+      "path": "35"
+    },
+    "108": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x4"
+    },
+    "110": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0xA3"
+    },
+    "112": {
+      "fn": "NullOracle.getAssetPrice",
+      "jump": "i",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "JUMP",
+      "path": "35"
+    },
+    "113": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "114": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x82"
+    },
+    "116": {
+      "fn": "NullOracle.getAssetPrice",
+      "jump": "i",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "JUMP",
+      "path": "35"
+    },
+    "117": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "118": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x40"
+    },
+    "120": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "MLOAD",
+      "path": "35"
+    },
+    "121": {
+      "op": "SWAP1"
+    },
+    "122": {
+      "op": "DUP2"
+    },
+    "123": {
+      "op": "MSTORE"
+    },
+    "124": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "126": {
+      "op": "ADD"
+    },
+    "127": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x5D"
+    },
+    "129": {
+      "op": "JUMP"
+    },
+    "130": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "131": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        284,
+        296
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x0"
+    },
+    "133": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        316,
+        325
+      ],
+      "op": "DUP1",
+      "path": "35"
+    },
+    "134": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        316,
+        325
+      ],
+      "op": "SLOAD",
+      "path": "35"
+    },
+    "135": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "137": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "139": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "141": {
+      "op": "SHL"
+    },
+    "142": {
+      "op": "SUB"
+    },
+    "143": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        307,
+        325
+      ],
+      "op": "DUP4",
+      "path": "35"
+    },
+    "144": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        307,
+        325
+      ],
+      "op": "DUP2",
+      "path": "35"
+    },
+    "145": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        307,
+        325
+      ],
+      "op": "AND",
+      "path": "35"
+    },
+    "146": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        316,
+        325
+      ],
+      "op": "SWAP2",
+      "path": "35"
+    },
+    "147": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        316,
+        325
+      ],
+      "op": "AND",
+      "path": "35"
+    },
+    "148": {
+      "branch": 1,
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        307,
+        325
+      ],
+      "op": "EQ",
+      "path": "35"
+    },
+    "149": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        303,
+        340
+      ],
+      "op": "PUSH1",
+      "path": "35",
+      "value": "0x9E"
+    },
+    "151": {
+      "branch": 1,
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        303,
+        340
+      ],
+      "op": "JUMPI",
+      "path": "35"
+    },
+    "152": {
+      "op": "POP"
+    },
+    "153": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        337,
+        340
+      ],
+      "op": "PUSH4",
+      "path": "35",
+      "statement": 0,
+      "value": "0x5F5E100"
+    },
+    "158": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        303,
+        340
+      ],
+      "op": "JUMPDEST",
+      "path": "35"
+    },
+    "159": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "SWAP2",
+      "path": "35"
+    },
+    "160": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "SWAP1",
+      "path": "35"
+    },
+    "161": {
+      "fn": "NullOracle.getAssetPrice",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "POP",
+      "path": "35"
+    },
+    "162": {
+      "fn": "NullOracle.getAssetPrice",
+      "jump": "o",
+      "offset": [
+        225,
+        345
+      ],
+      "op": "JUMP",
+      "path": "35"
+    },
+    "163": {
+      "op": "JUMPDEST"
+    },
+    "164": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "166": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "168": {
+      "op": "DUP3"
+    },
+    "169": {
+      "op": "DUP5"
+    },
+    "170": {
+      "op": "SUB"
+    },
+    "171": {
+      "op": "SLT"
+    },
+    "172": {
+      "op": "ISZERO"
+    },
+    "173": {
+      "op": "PUSH1",
+      "value": "0xB4"
+    },
+    "175": {
+      "op": "JUMPI"
+    },
+    "176": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "178": {
+      "op": "DUP1"
+    },
+    "179": {
+      "op": "REVERT"
+    },
+    "180": {
+      "op": "JUMPDEST"
+    },
+    "181": {
+      "op": "DUP2"
+    },
+    "182": {
+      "op": "CALLDATALOAD"
+    },
+    "183": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "185": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "187": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "189": {
+      "op": "SHL"
+    },
+    "190": {
+      "op": "SUB"
+    },
+    "191": {
+      "op": "DUP2"
+    },
+    "192": {
+      "op": "AND"
+    },
+    "193": {
+      "op": "DUP2"
+    },
+    "194": {
+      "op": "EQ"
+    },
+    "195": {
+      "op": "PUSH1",
+      "value": "0xCA"
+    },
+    "197": {
+      "op": "JUMPI"
+    },
+    "198": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "200": {
+      "op": "DUP1"
+    },
+    "201": {
+      "op": "REVERT"
+    },
+    "202": {
+      "op": "JUMPDEST"
+    },
+    "203": {
+      "op": "SWAP4"
+    },
+    "204": {
+      "op": "SWAP3"
+    },
+    "205": {
+      "op": "POP"
+    },
+    "206": {
+      "op": "POP"
+    },
+    "207": {
+      "op": "POP"
+    },
+    "208": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "086d10826e669f284873510e9c16e40833ac16a5",
+  "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity 0.8.19;\n\n/// @notice Oracle always return 0 for tests\ncontract NullOracle {\n  address public nullToken;\n  \n  constructor(address token) {\n    nullToken = token;\n  }\n  \n  function getAssetPrice(address token) public view returns (uint priceX8){\n    if (token != nullToken) priceX8 = 1e8;\n  }\n}",
+  "sourceMap": "109:238:35:-:0;;;164:55;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;197:9;:17;;-1:-1:-1;;;;;;197:17:35;-1:-1:-1;;;;;197:17:35;;;;;;;;;;109:238;;14:290:58;84:6;137:2;125:9;116:7;112:23;108:32;105:52;;;153:1;150;143:12;105:52;179:16;;-1:-1:-1;;;;;224:31:58;;214:42;;204:70;;270:1;267;260:12;204:70;293:5;14:290;-1:-1:-1;;;14:290:58:o;:::-;109:238:35;;;;;;",
+  "sourcePath": "contracts/tests/NullOracle.sol",
+  "type": "contract"
+}

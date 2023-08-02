@@ -142,7 +142,7 @@ The project uses Brownie as a testing framework. https://eth-brownie.readthedocs
 First, start a local mainnet-fork. You can use Alchemy or Infura or any archive node.
 
 ```bash
-ganache-cli --port 8545 --gasLimit 12000000 --accounts 10 --hardfork istanbul --mnemonic brownie --fork https://eth-mainnet.g.alchemy.com/v2/aE_kYsizNYWhqZ18ryeMsl-JkWmCMgFj@16360000 --host 0.0.0.0
+ganache-cli --port 8545 --gasLimit 12000000 --accounts 10 --hardfork istanbul --mnemonic brownie --fork https://eth-mainnet.g.alchemy.com/v2/NpOkME14srA9sdKIMXeKPxgBUSb8OIcn@16360000 --host 0.0.0.0
 ```
 
 Then, run the tests,

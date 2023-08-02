@@ -1,0 +1,2581 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "beacon",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "previousAdmin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAdmin",
+          "type": "address"
+        }
+      ],
+      "name": "AdminChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "beacon",
+          "type": "address"
+        }
+      ],
+      "name": "BeaconUpgraded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        }
+      ],
+      "name": "Upgraded",
+      "type": "event"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "allSourcePaths": {
+    "37": "contracts/openzeppelin-solidity/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+    "38": "contracts/openzeppelin-solidity/contracts/proxy/Proxy.sol",
+    "39": "contracts/openzeppelin-solidity/contracts/proxy/beacon/BeaconProxy.sol",
+    "40": "contracts/openzeppelin-solidity/contracts/proxy/beacon/IBeacon.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/openzeppelin-solidity/contracts/proxy/beacon/BeaconProxy.sol",
+    "exportedSymbols": {
+      "Address": [
+        12471
+      ],
+      "BeaconProxy": [
+        8924
+      ],
+      "ERC1967Upgrade": [
+        14342
+      ],
+      "IBeacon": [
+        14404
+      ],
+      "Proxy": [
+        14394
+      ],
+      "StorageSlot": [
+        15906
+      ]
+    },
+    "id": 8925,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8844,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "97:23:39"
+      },
+      {
+        "absolutePath": "contracts/openzeppelin-solidity/contracts/proxy/beacon/IBeacon.sol",
+        "file": "./IBeacon.sol",
+        "id": 8845,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 8925,
+        "sourceUnit": 14405,
+        "src": "122:23:39",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/openzeppelin-solidity/contracts/proxy/Proxy.sol",
+        "file": "../Proxy.sol",
+        "id": 8846,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 8925,
+        "sourceUnit": 14395,
+        "src": "146:22:39",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/openzeppelin-solidity/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "file": "../ERC1967/ERC1967Upgrade.sol",
+        "id": 8847,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 8925,
+        "sourceUnit": 14343,
+        "src": "169:39:39",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 8849,
+              "name": "Proxy",
+              "nameLocations": [
+                "588:5:39"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 14394,
+              "src": "588:5:39"
+            },
+            "id": 8850,
+            "nodeType": "InheritanceSpecifier",
+            "src": "588:5:39"
+          },
+          {
+            "baseName": {
+              "id": 8851,
+              "name": "ERC1967Upgrade",
+              "nameLocations": [
+                "595:14:39"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 14342,
+              "src": "595:14:39"
+            },
+            "id": 8852,
+            "nodeType": "InheritanceSpecifier",
+            "src": "595:14:39"
+          }
+        ],
+        "canonicalName": "BeaconProxy",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 8848,
+          "nodeType": "StructuredDocumentation",
+          "src": "210:353:39",
+          "text": " @dev This contract implements a proxy that gets the implementation address for each call from a {UpgradeableBeacon}.\n The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't\n conflict with the storage layout of the implementation behind the proxy.\n _Available since v3.4._"
+        },
+        "fullyImplemented": true,
+        "id": 8924,
+        "linearizedBaseContracts": [
+          8924,
+          14342,
+          14394
+        ],
+        "name": "BeaconProxy",
+        "nameLocation": "573:11:39",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 8882,
+              "nodeType": "Block",
+              "src": "1101:150:39",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "id": 8873,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 8861,
+                          "name": "_BEACON_SLOT",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14249,
+                          "src": "1118:12:39",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "arguments": [
+                            {
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "id": 8871,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "leftExpression": {
+                                "arguments": [
+                                  {
+                                    "arguments": [
+                                      {
+                                        "hexValue": "656970313936372e70726f78792e626561636f6e",
+                                        "id": 8867,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": true,
+                                        "kind": "string",
+                                        "lValueRequested": false,
+                                        "nodeType": "Literal",
+                                        "src": "1160:22:39",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_stringliteral_a3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d51",
+                                          "typeString": "literal_string \"eip1967.proxy.beacon\""
+                                        },
+                                        "value": "eip1967.proxy.beacon"
+                                      }
+                                    ],
+                                    "expression": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_stringliteral_a3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d51",
+                                          "typeString": "literal_string \"eip1967.proxy.beacon\""
+                                        }
+                                      ],
+                                      "id": 8866,
+                                      "name": "keccak256",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": -8,
+                                      "src": "1150:9:39",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                                      }
+                                    },
+                                    "id": 8868,
+                                    "isConstant": false,
+                                    "isLValue": false,
+                                    "isPure": true,
+                                    "kind": "functionCall",
+                                    "lValueRequested": false,
+                                    "nameLocations": [],
+                                    "names": [],
+                                    "nodeType": "FunctionCall",
+                                    "src": "1150:33:39",
+                                    "tryCall": false,
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    }
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    }
+                                  ],
+                                  "id": 8865,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "nodeType": "ElementaryTypeNameExpression",
+                                  "src": "1142:7:39",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_uint256_$",
+                                    "typeString": "type(uint256)"
+                                  },
+                                  "typeName": {
+                                    "id": 8864,
+                                    "name": "uint256",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "1142:7:39",
+                                    "typeDescriptions": {}
+                                  }
+                                },
+                                "id": 8869,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "kind": "typeConversion",
+                                "lValueRequested": false,
+                                "nameLocations": [],
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "1142:42:39",
+                                "tryCall": false,
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "nodeType": "BinaryOperation",
+                              "operator": "-",
+                              "rightExpression": {
+                                "hexValue": "31",
+                                "id": 8870,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "kind": "number",
+                                "lValueRequested": false,
+                                "nodeType": "Literal",
+                                "src": "1187:1:39",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_rational_1_by_1",
+                                  "typeString": "int_const 1"
+                                },
+                                "value": "1"
+                              },
+                              "src": "1142:46:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "id": 8863,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "1134:7:39",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_bytes32_$",
+                              "typeString": "type(bytes32)"
+                            },
+                            "typeName": {
+                              "id": 8862,
+                              "name": "bytes32",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "1134:7:39",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 8872,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "nameLocations": [],
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1134:55:39",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "src": "1118:71:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 8860,
+                      "name": "assert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": -3,
+                      "src": "1111:6:39",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_assert_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 8874,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1111:79:39",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8875,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1111:79:39"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 8877,
+                        "name": "beacon",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8855,
+                        "src": "1224:6:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 8878,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8857,
+                        "src": "1232:4:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      },
+                      {
+                        "hexValue": "66616c7365",
+                        "id": 8879,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "bool",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1238:5:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "value": "false"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        },
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 8876,
+                      "name": "_upgradeBeaconToAndCall",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14341,
+                      "src": "1200:23:39",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$_t_bool_$returns$__$",
+                        "typeString": "function (address,bytes memory,bool)"
+                      }
+                    },
+                    "id": 8880,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1200:44:39",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8881,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1200:44:39"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 8853,
+              "nodeType": "StructuredDocumentation",
+              "src": "616:425:39",
+              "text": " @dev Initializes the proxy with `beacon`.\n If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. This\n will typically be an encoded function call, and allows initializating the storage of the proxy like a Solidity\n constructor.\n Requirements:\n - `beacon` must be a contract with the interface {IBeacon}."
+            },
+            "id": 8883,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8858,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8855,
+                  "mutability": "mutable",
+                  "name": "beacon",
+                  "nameLocation": "1066:6:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8883,
+                  "src": "1058:14:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8854,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1058:7:39",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8857,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "1087:4:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8883,
+                  "src": "1074:17:39",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8856,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1074:5:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1057:35:39"
+            },
+            "returnParameters": {
+              "id": 8859,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1101:0:39"
+            },
+            "scope": 8924,
+            "src": "1046:205:39",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8892,
+              "nodeType": "Block",
+              "src": "1380:36:39",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 8889,
+                      "name": "_getBeacon",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14267,
+                      "src": "1397:10:39",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                        "typeString": "function () view returns (address)"
+                      }
+                    },
+                    "id": 8890,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1397:12:39",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 8888,
+                  "id": 8891,
+                  "nodeType": "Return",
+                  "src": "1390:19:39"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 8884,
+              "nodeType": "StructuredDocumentation",
+              "src": "1257:59:39",
+              "text": " @dev Returns the current beacon address."
+            },
+            "id": 8893,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_beacon",
+            "nameLocation": "1330:7:39",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8885,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1337:2:39"
+            },
+            "returnParameters": {
+              "id": 8888,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8887,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8893,
+                  "src": "1371:7:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8886,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1371:7:39",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1370:9:39"
+            },
+            "scope": 8924,
+            "src": "1321:95:39",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "internal"
+          },
+          {
+            "baseFunctions": [
+              14359
+            ],
+            "body": {
+              "id": 8907,
+              "nodeType": "Block",
+              "src": "1595:62:39",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "arguments": [],
+                            "expression": {
+                              "argumentTypes": [],
+                              "id": 8901,
+                              "name": "_getBeacon",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 14267,
+                              "src": "1620:10:39",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                                "typeString": "function () view returns (address)"
+                              }
+                            },
+                            "id": 8902,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "nameLocations": [],
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "1620:12:39",
+                            "tryCall": false,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 8900,
+                          "name": "IBeacon",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14404,
+                          "src": "1612:7:39",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_IBeacon_$14404_$",
+                            "typeString": "type(contract IBeacon)"
+                          }
+                        },
+                        "id": 8903,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1612:21:39",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBeacon_$14404",
+                          "typeString": "contract IBeacon"
+                        }
+                      },
+                      "id": 8904,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1634:14:39",
+                      "memberName": "implementation",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 14403,
+                      "src": "1612:36:39",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                        "typeString": "function () view external returns (address)"
+                      }
+                    },
+                    "id": 8905,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1612:38:39",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 8899,
+                  "id": 8906,
+                  "nodeType": "Return",
+                  "src": "1605:45:39"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 8894,
+              "nodeType": "StructuredDocumentation",
+              "src": "1422:92:39",
+              "text": " @dev Returns the current implementation address of the associated beacon."
+            },
+            "id": 8908,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_implementation",
+            "nameLocation": "1528:15:39",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 8896,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1568:8:39"
+            },
+            "parameters": {
+              "id": 8895,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1543:2:39"
+            },
+            "returnParameters": {
+              "id": 8899,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8898,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8908,
+                  "src": "1586:7:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8897,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1586:7:39",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1585:9:39"
+            },
+            "scope": 8924,
+            "src": "1519:138:39",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 8922,
+              "nodeType": "Block",
+              "src": "2107:61:39",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 8917,
+                        "name": "beacon",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8911,
+                        "src": "2141:6:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 8918,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8913,
+                        "src": "2149:4:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      },
+                      {
+                        "hexValue": "66616c7365",
+                        "id": 8919,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "bool",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "2155:5:39",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "value": "false"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        },
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 8916,
+                      "name": "_upgradeBeaconToAndCall",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14341,
+                      "src": "2117:23:39",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$_t_bool_$returns$__$",
+                        "typeString": "function (address,bytes memory,bool)"
+                      }
+                    },
+                    "id": 8920,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2117:44:39",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 8921,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2117:44:39"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 8909,
+              "nodeType": "StructuredDocumentation",
+              "src": "1663:367:39",
+              "text": " @dev Changes the proxy to use a new beacon. Deprecated: see {_upgradeBeaconToAndCall}.\n If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon.\n Requirements:\n - `beacon` must be a contract.\n - The implementation returned by `beacon` must be a contract."
+            },
+            "id": 8923,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_setBeacon",
+            "nameLocation": "2044:10:39",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8914,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8911,
+                  "mutability": "mutable",
+                  "name": "beacon",
+                  "nameLocation": "2063:6:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8923,
+                  "src": "2055:14:39",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 8910,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2055:7:39",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8913,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "2084:4:39",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8923,
+                  "src": "2071:17:39",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8912,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2071:5:39",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2054:35:39"
+            },
+            "returnParameters": {
+              "id": 8915,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2107:0:39"
+            },
+            "scope": 8924,
+            "src": "2035:133:39",
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 8925,
+        "src": "564:1606:39",
+        "usedErrors": [],
+        "usedEvents": [
+          14011,
+          14189,
+          14254
+        ]
+      }
+    ],
+    "src": "97:2074:39"
+  },
+  "bytecode": "608060405260405161074f38038061074f8339810160408190526100229161044c565b61004d60017fa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d5161050c565b600080516020610708833981519152146100695761006961052d565b6100758282600061007c565b50506105ad565b6100858361013d565b6040516001600160a01b038416907f1cf3b03a6cf19fa2baba4df148e9dcabedea7f8a5c07840e207e5c089be95d3e90600090a26000825111806100c65750805b1561013857610136836001600160a01b0316635c60da1b6040518163ffffffff1660e01b8152600401602060405180830381865afa15801561010c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101309190610543565b836102af565b505b505050565b6001600160a01b0381163b6101a75760405162461bcd60e51b815260206004820152602560248201527f455243313936373a206e657720626561636f6e206973206e6f74206120636f6e6044820152641d1c9858dd60da1b60648201526084015b60405180910390fd5b61021b816001600160a01b0316635c60da1b6040518163ffffffff1660e01b8152600401602060405180830381865afa1580156101e8573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061020c9190610543565b6001600160a01b03163b151590565b6102805760405162461bcd60e51b815260206004820152603060248201527f455243313936373a20626561636f6e20696d706c656d656e746174696f6e206960448201526f1cc81b9bdd08184818dbdb9d1c9858dd60821b606482015260840161019e565b60008051602061070883398151915280546001600160a01b0319166001600160a01b0392909216919091179055565b60606102d48383604051806060016040528060278152602001610728602791396102dd565b90505b92915050565b60606001600160a01b0384163b6103455760405162461bcd60e51b815260206004820152602660248201527f416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6044820152651b9d1c9858dd60d21b606482015260840161019e565b600080856001600160a01b031685604051610360919061055e565b600060405180830381855af49150503d806000811461039b576040519150601f19603f3d011682016040523d82523d6000602084013e6103a0565b606091505b5090925090506103b18282866103bd565b925050505b9392505050565b606083156103cc5750816103b6565b8251156103dc5782518084602001fd5b8160405162461bcd60e51b815260040161019e919061057a565b80516001600160a01b038116811461040d57600080fd5b919050565b634e487b7160e01b600052604160045260246000fd5b60005b8381101561044357818101518382015260200161042b565b50506000910152565b6000806040838503121561045f57600080fd5b610468836103f6565b60208401519092506001600160401b038082111561048557600080fd5b818501915085601f83011261049957600080fd5b8151818111156104ab576104ab610412565b604051601f8201601f19908116603f011681019083821181831017156104d3576104d3610412565b816040528281528860208487010111156104ec57600080fd5b6104fd836020830160208801610428565b80955050505050509250929050565b818103818111156102d757634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052600160045260246000fd5b60006020828403121561055557600080fd5b6102d4826103f6565b60008251610570818460208701610428565b9190910192915050565b6020815260008251806020840152610599816040850160208701610428565b601f01601f19169190910160400192915050565b61014c806105bc6000396000f3fe60806040523661001357610011610017565b005b6100115b610027610022610029565b6100c2565b565b600061005c7fa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50546001600160a01b031690565b6001600160a01b0316635c60da1b6040518163ffffffff1660e01b8152600401602060405180830381865afa158015610099573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100bd91906100e6565b905090565b3660008037600080366000845af43d6000803e8080156100e1573d6000f35b3d6000fd5b6000602082840312156100f857600080fd5b81516001600160a01b038116811461010f57600080fd5b939250505056fea2646970667358221220694410e42ad26f06cd4ced242ea88d7b1cc6876fa826773bf7479ab242d5c86464736f6c63430008150033a3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50416464726573733a206c6f772d6c6576656c2064656c65676174652063616c6c206661696c6564",
+  "bytecodeSha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.21+commit.d9974bed"
+  },
+  "contractName": "BeaconProxy",
+  "coverageMap": {
+    "branches": {
+      "37": {},
+      "38": {},
+      "39": {},
+      "40": {}
+    },
+    "statements": {
+      "37": {
+        "ERC1967Upgrade._getBeacon": {
+          "4": [
+            5571,
+            5624
+          ]
+        }
+      },
+      "38": {
+        "Proxy.<fallback>": {
+          "1": [
+            2660,
+            2671
+          ]
+        },
+        "Proxy.<receive>": {
+          "0": [
+            2883,
+            2894
+          ]
+        },
+        "Proxy._fallback": {
+          "2": [
+            2382,
+            2410
+          ]
+        }
+      },
+      "39": {
+        "BeaconProxy._implementation": {
+          "3": [
+            1605,
+            1650
+          ]
+        }
+      },
+      "40": {}
+    }
+  },
+  "dependencies": [
+    "ERC1967Upgrade",
+    "IBeacon",
+    "Proxy"
+  ],
+  "deployedBytecode": "60806040523661001357610011610017565b005b6100115b610027610022610029565b6100c2565b565b600061005c7fa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50546001600160a01b031690565b6001600160a01b0316635c60da1b6040518163ffffffff1660e01b8152600401602060405180830381865afa158015610099573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100bd91906100e6565b905090565b3660008037600080366000845af43d6000803e8080156100e1573d6000f35b3d6000fd5b6000602082840312156100f857600080fd5b81516001600160a01b038116811461010f57600080fd5b939250505056fea2646970667358221220694410e42ad26f06cd4ced242ea88d7b1cc6876fa826773bf7479ab242d5c86464736f6c63430008150033",
+  "deployedSourceMap": "564:1606:39:-:0;;;;;;2883:11:38;:9;:11::i;:::-;564:1606:39;;2660:11:38;2307:110;2382:28;2392:17;:15;:17::i;:::-;2382:9;:28::i;:::-;2307:110::o;1519:138:39:-;1586:7;1620:12;5262:66:37;5578:46;-1:-1:-1;;;;;5578:46:37;;5507:124;1620:12:39;-1:-1:-1;;;;;1612:36:39;;:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;1605:45;;1519:138;:::o;933:895:38:-;1271:14;1268:1;1265;1252:34;1485:1;1482;1466:14;1463:1;1447:14;1440:5;1427:60;1561:16;1558:1;1555;1540:38;1599:6;1666:66;;;;1781:16;1778:1;1771:27;1666:66;1701:16;1698:1;1691:27;14:290:102;84:6;137:2;125:9;116:7;112:23;108:32;105:52;;;153:1;150;143:12;105:52;179:16;;-1:-1:-1;;;;;224:31:102;;214:42;;204:70;;270:1;267;260:12;204:70;293:5;14:290;-1:-1:-1;;;14:290:102:o",
+  "language": "Solidity",
+  "natspec": {
+    "details": "This contract implements a proxy that gets the implementation address for each call from a {UpgradeableBeacon}. The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't conflict with the storage layout of the implementation behind the proxy. _Available since v3.4._",
+    "events": {
+      "AdminChanged(address,address)": {
+        "details": "Emitted when the admin account has changed."
+      },
+      "BeaconUpgraded(address)": {
+        "details": "Emitted when the beacon is upgraded."
+      },
+      "Upgraded(address)": {
+        "details": "Emitted when the implementation is upgraded."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "details": "Initializes the proxy with `beacon`. If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. This will typically be an encoded function call, and allows initializating the storage of the proxy like a Solidity constructor. Requirements: - `beacon` must be a contract with the interface {IBeacon}."
+      }
+    },
+    "version": 1
+  },
+  "offset": [
+    564,
+    2170
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLDATASIZE PUSH2 0x13 JUMPI PUSH2 0x11 PUSH2 0x17 JUMP JUMPDEST STOP JUMPDEST PUSH2 0x11 JUMPDEST PUSH2 0x27 PUSH2 0x22 PUSH2 0x29 JUMP JUMPDEST PUSH2 0xC2 JUMP JUMPDEST JUMP JUMPDEST PUSH1 0x0 PUSH2 0x5C PUSH32 0xA3F0AD74E5423AEBFD80D3EF4346578335A9A72AEAEE59FF6CB3582B35133D50 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND SWAP1 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH4 0x5C60DA1B PUSH1 0x40 MLOAD DUP2 PUSH4 0xFFFFFFFF AND PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 GAS STATICCALL ISZERO DUP1 ISZERO PUSH2 0x99 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0xBD SWAP2 SWAP1 PUSH2 0xE6 JUMP JUMPDEST SWAP1 POP SWAP1 JUMP JUMPDEST CALLDATASIZE PUSH1 0x0 DUP1 CALLDATACOPY PUSH1 0x0 DUP1 CALLDATASIZE PUSH1 0x0 DUP5 GAS DELEGATECALL RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY DUP1 DUP1 ISZERO PUSH2 0xE1 JUMPI RETURNDATASIZE PUSH1 0x0 RETURN JUMPDEST RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0xF8 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x10F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH10 0x4410E42AD26F06CD4CED 0x24 0x2E 0xA8 DUP14 PUSH28 0x1CC6876FA826773BF7479AB242D5C86464736F6C6343000815003300 ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        564,
+        2170
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        564,
+        2170
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        564,
+        2170
+      ],
+      "op": "MSTORE",
+      "path": "39"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        564,
+        2170
+      ],
+      "op": "CALLDATASIZE",
+      "path": "39"
+    },
+    "6": {
+      "fn": null,
+      "offset": [
+        564,
+        2170
+      ],
+      "op": "PUSH2",
+      "path": "39",
+      "value": "0x13"
+    },
+    "9": {
+      "fn": null,
+      "offset": [
+        564,
+        2170
+      ],
+      "op": "JUMPI",
+      "path": "39"
+    },
+    "10": {
+      "fn": "Proxy.<receive>",
+      "offset": [
+        2883,
+        2894
+      ],
+      "op": "PUSH2",
+      "path": "38",
+      "statement": 0,
+      "value": "0x11"
+    },
+    "13": {
+      "fn": "Proxy.<receive>",
+      "offset": [
+        2883,
+        2892
+      ],
+      "op": "PUSH2",
+      "path": "38",
+      "value": "0x17"
+    },
+    "16": {
+      "fn": "Proxy.<receive>",
+      "jump": "i",
+      "offset": [
+        2883,
+        2894
+      ],
+      "op": "JUMP",
+      "path": "38"
+    },
+    "17": {
+      "fn": "Proxy.<receive>",
+      "offset": [
+        2883,
+        2894
+      ],
+      "op": "JUMPDEST",
+      "path": "38"
+    },
+    "18": {
+      "offset": [
+        564,
+        2170
+      ],
+      "op": "STOP",
+      "path": "39"
+    },
+    "19": {
+      "fn": "Proxy.<receive>",
+      "offset": [
+        564,
+        2170
+      ],
+      "op": "JUMPDEST",
+      "path": "39"
+    },
+    "20": {
+      "fn": "Proxy.<fallback>",
+      "offset": [
+        2660,
+        2671
+      ],
+      "op": "PUSH2",
+      "path": "38",
+      "statement": 1,
+      "value": "0x11"
+    },
+    "23": {
+      "fn": "Proxy._fallback",
+      "offset": [
+        2307,
+        2417
+      ],
+      "op": "JUMPDEST",
+      "path": "38"
+    },
+    "24": {
+      "fn": "Proxy._fallback",
+      "offset": [
+        2382,
+        2410
+      ],
+      "op": "PUSH2",
+      "path": "38",
+      "statement": 2,
+      "value": "0x27"
+    },
+    "27": {
+      "fn": "Proxy._fallback",
+      "offset": [
+        2392,
+        2409
+      ],
+      "op": "PUSH2",
+      "path": "38",
+      "value": "0x22"
+    },
+    "30": {
+      "fn": "Proxy._fallback",
+      "offset": [
+        2392,
+        2407
+      ],
+      "op": "PUSH2",
+      "path": "38",
+      "value": "0x29"
+    },
+    "33": {
+      "fn": "Proxy._fallback",
+      "jump": "i",
+      "offset": [
+        2392,
+        2409
+      ],
+      "op": "JUMP",
+      "path": "38"
+    },
+    "34": {
+      "fn": "Proxy._fallback",
+      "offset": [
+        2392,
+        2409
+      ],
+      "op": "JUMPDEST",
+      "path": "38"
+    },
+    "35": {
+      "fn": "Proxy._fallback",
+      "offset": [
+        2382,
+        2391
+      ],
+      "op": "PUSH2",
+      "path": "38",
+      "value": "0xC2"
+    },
+    "38": {
+      "fn": "Proxy._fallback",
+      "jump": "i",
+      "offset": [
+        2382,
+        2410
+      ],
+      "op": "JUMP",
+      "path": "38"
+    },
+    "39": {
+      "fn": "Proxy._fallback",
+      "offset": [
+        2382,
+        2410
+      ],
+      "op": "JUMPDEST",
+      "path": "38"
+    },
+    "40": {
+      "fn": "Proxy._fallback",
+      "jump": "o",
+      "offset": [
+        2307,
+        2417
+      ],
+      "op": "JUMP",
+      "path": "38"
+    },
+    "41": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1519,
+        1657
+      ],
+      "op": "JUMPDEST",
+      "path": "39"
+    },
+    "42": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1586,
+        1593
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x0"
+    },
+    "44": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1620,
+        1632
+      ],
+      "op": "PUSH2",
+      "path": "39",
+      "statement": 3,
+      "value": "0x5C"
+    },
+    "47": {
+      "offset": [
+        5262,
+        5328
+      ],
+      "op": "PUSH32",
+      "path": "37",
+      "value": "0xA3F0AD74E5423AEBFD80D3EF4346578335A9A72AEAEE59FF6CB3582B35133D50"
+    },
+    "80": {
+      "fn": "ERC1967Upgrade._getBeacon",
+      "offset": [
+        5578,
+        5624
+      ],
+      "op": "SLOAD",
+      "path": "37",
+      "statement": 4
+    },
+    "81": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "83": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "85": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "87": {
+      "op": "SHL"
+    },
+    "88": {
+      "op": "SUB"
+    },
+    "89": {
+      "fn": "ERC1967Upgrade._getBeacon",
+      "offset": [
+        5578,
+        5624
+      ],
+      "op": "AND",
+      "path": "37"
+    },
+    "90": {
+      "fn": "ERC1967Upgrade._getBeacon",
+      "offset": [
+        5578,
+        5624
+      ],
+      "op": "SWAP1",
+      "path": "37"
+    },
+    "91": {
+      "fn": "ERC1967Upgrade._getBeacon",
+      "offset": [
+        5507,
+        5631
+      ],
+      "op": "JUMP",
+      "path": "37"
+    },
+    "92": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1620,
+        1632
+      ],
+      "op": "JUMPDEST",
+      "path": "39"
+    },
+    "93": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "95": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "97": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "99": {
+      "op": "SHL"
+    },
+    "100": {
+      "op": "SUB"
+    },
+    "101": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1648
+      ],
+      "op": "AND",
+      "path": "39"
+    },
+    "102": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1648
+      ],
+      "op": "PUSH4",
+      "path": "39",
+      "value": "0x5C60DA1B"
+    },
+    "107": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x40"
+    },
+    "109": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "MLOAD",
+      "path": "39"
+    },
+    "110": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP2",
+      "path": "39"
+    },
+    "111": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH4",
+      "path": "39",
+      "value": "0xFFFFFFFF"
+    },
+    "116": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "AND",
+      "path": "39"
+    },
+    "117": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0xE0"
+    },
+    "119": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "SHL",
+      "path": "39"
+    },
+    "120": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP2",
+      "path": "39"
+    },
+    "121": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "MSTORE",
+      "path": "39"
+    },
+    "122": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x4"
+    },
+    "124": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "ADD",
+      "path": "39"
+    },
+    "125": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x20"
+    },
+    "127": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x40"
+    },
+    "129": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "MLOAD",
+      "path": "39"
+    },
+    "130": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP1",
+      "path": "39"
+    },
+    "131": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP4",
+      "path": "39"
+    },
+    "132": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "SUB",
+      "path": "39"
+    },
+    "133": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP2",
+      "path": "39"
+    },
+    "134": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP7",
+      "path": "39"
+    },
+    "135": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "GAS",
+      "path": "39"
+    },
+    "136": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "STATICCALL",
+      "path": "39"
+    },
+    "137": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "ISZERO",
+      "path": "39"
+    },
+    "138": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP1",
+      "path": "39"
+    },
+    "139": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "ISZERO",
+      "path": "39"
+    },
+    "140": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH2",
+      "path": "39",
+      "value": "0x99"
+    },
+    "143": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "JUMPI",
+      "path": "39"
+    },
+    "144": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "39"
+    },
+    "145": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x0"
+    },
+    "147": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP1",
+      "path": "39"
+    },
+    "148": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "39"
+    },
+    "149": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "39"
+    },
+    "150": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x0"
+    },
+    "152": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "REVERT",
+      "path": "39"
+    },
+    "153": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "JUMPDEST",
+      "path": "39"
+    },
+    "154": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "POP",
+      "path": "39"
+    },
+    "155": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "POP",
+      "path": "39"
+    },
+    "156": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "POP",
+      "path": "39"
+    },
+    "157": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "POP",
+      "path": "39"
+    },
+    "158": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x40"
+    },
+    "160": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "MLOAD",
+      "path": "39"
+    },
+    "161": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "39"
+    },
+    "162": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x1F"
+    },
+    "164": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "NOT",
+      "path": "39"
+    },
+    "165": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x1F"
+    },
+    "167": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP3",
+      "path": "39"
+    },
+    "168": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "ADD",
+      "path": "39"
+    },
+    "169": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "AND",
+      "path": "39"
+    },
+    "170": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP3",
+      "path": "39"
+    },
+    "171": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "ADD",
+      "path": "39"
+    },
+    "172": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP1",
+      "path": "39"
+    },
+    "173": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "39",
+      "value": "0x40"
+    },
+    "175": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "MSTORE",
+      "path": "39"
+    },
+    "176": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "POP",
+      "path": "39"
+    },
+    "177": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "DUP2",
+      "path": "39"
+    },
+    "178": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "ADD",
+      "path": "39"
+    },
+    "179": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "SWAP1",
+      "path": "39"
+    },
+    "180": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH2",
+      "path": "39",
+      "value": "0xBD"
+    },
+    "183": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "SWAP2",
+      "path": "39"
+    },
+    "184": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "SWAP1",
+      "path": "39"
+    },
+    "185": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "PUSH2",
+      "path": "39",
+      "value": "0xE6"
+    },
+    "188": {
+      "fn": "BeaconProxy._implementation",
+      "jump": "i",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "JUMP",
+      "path": "39"
+    },
+    "189": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1612,
+        1650
+      ],
+      "op": "JUMPDEST",
+      "path": "39"
+    },
+    "190": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1605,
+        1650
+      ],
+      "op": "SWAP1",
+      "path": "39"
+    },
+    "191": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1605,
+        1650
+      ],
+      "op": "POP",
+      "path": "39"
+    },
+    "192": {
+      "fn": "BeaconProxy._implementation",
+      "offset": [
+        1519,
+        1657
+      ],
+      "op": "SWAP1",
+      "path": "39"
+    },
+    "193": {
+      "fn": "BeaconProxy._implementation",
+      "jump": "o",
+      "offset": [
+        1519,
+        1657
+      ],
+      "op": "JUMP",
+      "path": "39"
+    },
+    "194": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        933,
+        1828
+      ],
+      "op": "JUMPDEST",
+      "path": "38"
+    },
+    "195": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1271,
+        1285
+      ],
+      "op": "CALLDATASIZE",
+      "path": "38"
+    },
+    "196": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1268,
+        1269
+      ],
+      "op": "PUSH1",
+      "path": "38",
+      "value": "0x0"
+    },
+    "198": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1265,
+        1266
+      ],
+      "op": "DUP1",
+      "path": "38"
+    },
+    "199": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1252,
+        1286
+      ],
+      "op": "CALLDATACOPY",
+      "path": "38"
+    },
+    "200": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1485,
+        1486
+      ],
+      "op": "PUSH1",
+      "path": "38",
+      "value": "0x0"
+    },
+    "202": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1482,
+        1483
+      ],
+      "op": "DUP1",
+      "path": "38"
+    },
+    "203": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1466,
+        1480
+      ],
+      "op": "CALLDATASIZE",
+      "path": "38"
+    },
+    "204": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1463,
+        1464
+      ],
+      "op": "PUSH1",
+      "path": "38",
+      "value": "0x0"
+    },
+    "206": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1447,
+        1461
+      ],
+      "op": "DUP5",
+      "path": "38"
+    },
+    "207": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1440,
+        1445
+      ],
+      "op": "GAS",
+      "path": "38"
+    },
+    "208": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1427,
+        1487
+      ],
+      "op": "DELEGATECALL",
+      "path": "38"
+    },
+    "209": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1561,
+        1577
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "38"
+    },
+    "210": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1558,
+        1559
+      ],
+      "op": "PUSH1",
+      "path": "38",
+      "value": "0x0"
+    },
+    "212": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1555,
+        1556
+      ],
+      "op": "DUP1",
+      "path": "38"
+    },
+    "213": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1540,
+        1578
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "38"
+    },
+    "214": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1599,
+        1605
+      ],
+      "op": "DUP1",
+      "path": "38"
+    },
+    "215": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1666,
+        1732
+      ],
+      "op": "DUP1",
+      "path": "38"
+    },
+    "216": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1666,
+        1732
+      ],
+      "op": "ISZERO",
+      "path": "38"
+    },
+    "217": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1666,
+        1732
+      ],
+      "op": "PUSH2",
+      "path": "38",
+      "value": "0xE1"
+    },
+    "220": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1666,
+        1732
+      ],
+      "op": "JUMPI",
+      "path": "38"
+    },
+    "221": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1781,
+        1797
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "38"
+    },
+    "222": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1778,
+        1779
+      ],
+      "op": "PUSH1",
+      "path": "38",
+      "value": "0x0"
+    },
+    "224": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1771,
+        1798
+      ],
+      "op": "RETURN",
+      "path": "38"
+    },
+    "225": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1666,
+        1732
+      ],
+      "op": "JUMPDEST",
+      "path": "38"
+    },
+    "226": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1701,
+        1717
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "38"
+    },
+    "227": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1698,
+        1699
+      ],
+      "op": "PUSH1",
+      "path": "38",
+      "value": "0x0"
+    },
+    "229": {
+      "fn": "Proxy._delegate",
+      "offset": [
+        1691,
+        1718
+      ],
+      "op": "REVERT",
+      "path": "38"
+    },
+    "230": {
+      "op": "JUMPDEST"
+    },
+    "231": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "233": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "235": {
+      "op": "DUP3"
+    },
+    "236": {
+      "op": "DUP5"
+    },
+    "237": {
+      "op": "SUB"
+    },
+    "238": {
+      "op": "SLT"
+    },
+    "239": {
+      "op": "ISZERO"
+    },
+    "240": {
+      "op": "PUSH2",
+      "value": "0xF8"
+    },
+    "243": {
+      "op": "JUMPI"
+    },
+    "244": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "246": {
+      "op": "DUP1"
+    },
+    "247": {
+      "op": "REVERT"
+    },
+    "248": {
+      "op": "JUMPDEST"
+    },
+    "249": {
+      "op": "DUP2"
+    },
+    "250": {
+      "op": "MLOAD"
+    },
+    "251": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "253": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "255": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "257": {
+      "op": "SHL"
+    },
+    "258": {
+      "op": "SUB"
+    },
+    "259": {
+      "op": "DUP2"
+    },
+    "260": {
+      "op": "AND"
+    },
+    "261": {
+      "op": "DUP2"
+    },
+    "262": {
+      "op": "EQ"
+    },
+    "263": {
+      "op": "PUSH2",
+      "value": "0x10F"
+    },
+    "266": {
+      "op": "JUMPI"
+    },
+    "267": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "269": {
+      "op": "DUP1"
+    },
+    "270": {
+      "op": "REVERT"
+    },
+    "271": {
+      "op": "JUMPDEST"
+    },
+    "272": {
+      "op": "SWAP4"
+    },
+    "273": {
+      "op": "SWAP3"
+    },
+    "274": {
+      "op": "POP"
+    },
+    "275": {
+      "op": "POP"
+    },
+    "276": {
+      "op": "POP"
+    },
+    "277": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "408f95aaa13d49cba8a657a10563af8253a9e97b",
+  "source": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts v4.4.1 (proxy/beacon/BeaconProxy.sol)\n\npragma solidity ^0.8.0;\n\nimport \"./IBeacon.sol\";\nimport \"../Proxy.sol\";\nimport \"../ERC1967/ERC1967Upgrade.sol\";\n\n/**\n * @dev This contract implements a proxy that gets the implementation address for each call from a {UpgradeableBeacon}.\n *\n * The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't\n * conflict with the storage layout of the implementation behind the proxy.\n *\n * _Available since v3.4._\n */\ncontract BeaconProxy is Proxy, ERC1967Upgrade {\n    /**\n     * @dev Initializes the proxy with `beacon`.\n     *\n     * If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. This\n     * will typically be an encoded function call, and allows initializating the storage of the proxy like a Solidity\n     * constructor.\n     *\n     * Requirements:\n     *\n     * - `beacon` must be a contract with the interface {IBeacon}.\n     */\n    constructor(address beacon, bytes memory data) payable {\n        assert(_BEACON_SLOT == bytes32(uint256(keccak256(\"eip1967.proxy.beacon\")) - 1));\n        _upgradeBeaconToAndCall(beacon, data, false);\n    }\n\n    /**\n     * @dev Returns the current beacon address.\n     */\n    function _beacon() internal view virtual returns (address) {\n        return _getBeacon();\n    }\n\n    /**\n     * @dev Returns the current implementation address of the associated beacon.\n     */\n    function _implementation() internal view virtual override returns (address) {\n        return IBeacon(_getBeacon()).implementation();\n    }\n\n    /**\n     * @dev Changes the proxy to use a new beacon. Deprecated: see {_upgradeBeaconToAndCall}.\n     *\n     * If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon.\n     *\n     * Requirements:\n     *\n     * - `beacon` must be a contract.\n     * - The implementation returned by `beacon` must be a contract.\n     */\n    function _setBeacon(address beacon, bytes memory data) internal virtual {\n        _upgradeBeaconToAndCall(beacon, data, false);\n    }\n}\n",
+  "sourceMap": "564:1606:39:-:0;;;1046:205;;;;;;;;;;;;;;;;;;:::i;:::-;1142:46;1187:1;1150:33;1142:46;:::i;:::-;-1:-1:-1;;;;;;;;;;;1118:71:39;1111:79;;;;:::i;:::-;1200:44;1224:6;1232:4;1238:5;1200:23;:44::i;:::-;1046:205;;564:1606;;6387:343:37;6523:21;6534:9;6523:10;:21::i;:::-;6559:25;;-1:-1:-1;;;;;6559:25:37;;;;;;;;6612:1;6598:4;:11;:15;:28;;;;6617:9;6598:28;6594:130;;;6642:71;6679:9;-1:-1:-1;;;;;6671:33:37;;:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;6708:4;6642:28;:71::i;:::-;;6594:130;6387:343;;;:::o;5713:371::-;-1:-1:-1;;;;;1450:19:68;;;5770:79:37;;;;-1:-1:-1;;;5770:79:37;;2346:2:102;5770:79:37;;;2328:21:102;2385:2;2365:18;;;2358:30;2424:34;2404:18;;;2397:62;-1:-1:-1;;;2475:18:102;;;2468:35;2520:19;;5770:79:37;;;;;;;;;5880:55;5907:9;-1:-1:-1;;;;;5899:33:37;;:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;1450:19:68;;:23;;;1160:320;5880:55:37;5859:150;;;;-1:-1:-1;;;5859:150:37;;2752:2:102;5859:150:37;;;2734:21:102;2791:2;2771:18;;;2764:30;2830:34;2810:18;;;2803:62;-1:-1:-1;;;2881:18:102;;;2874:46;2937:19;;5859:150:37;2550:412:102;5859:150:37;-1:-1:-1;;;;;;;;;;;6019:58:37;;-1:-1:-1;;;;;;6019:58:37;-1:-1:-1;;;;;6019:58:37;;;;;;;;;;5713:371::o;6555:198:68:-;6638:12;6669:77;6690:6;6698:4;6669:77;;;;;;;;;;;;;;;;;:20;:77::i;:::-;6662:84;;6555:198;;;;;:::o;6939:387::-;7080:12;-1:-1:-1;;;;;1450:19:68;;;7104:69;;;;-1:-1:-1;;;7104:69:68;;3169:2:102;7104:69:68;;;3151:21:102;3208:2;3188:18;;;3181:30;3247:34;3227:18;;;3220:62;-1:-1:-1;;;3298:18:102;;;3291:36;3344:19;;7104:69:68;2967:402:102;7104:69:68;7185:12;7199:23;7226:6;-1:-1:-1;;;;;7226:19:68;7246:4;7226:25;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;7184:67:68;;-1:-1:-1;7184:67:68;-1:-1:-1;7268:51:68;7184:67;;7306:12;7268:16;:51::i;:::-;7261:58;;;;6939:387;;;;;;:::o;7546:692::-;7692:12;7720:7;7716:516;;;-1:-1:-1;7750:10:68;7743:17;;7716:516;7861:17;;:21;7857:365;;8055:10;8049:17;8115:15;8102:10;8098:2;8094:19;8087:44;7857:365;8194:12;8187:20;;-1:-1:-1;;;8187:20:68;;;;;;;;:::i;14:177:102:-;93:13;;-1:-1:-1;;;;;135:31:102;;125:42;;115:70;;181:1;178;171:12;115:70;14:177;;;:::o;196:127::-;257:10;252:3;248:20;245:1;238:31;288:4;285:1;278:15;312:4;309:1;302:15;328:250;413:1;423:113;437:6;434:1;431:13;423:113;;;513:11;;;507:18;494:11;;;487:39;459:2;452:10;423:113;;;-1:-1:-1;;570:1:102;552:16;;545:27;328:250::o;583:981::-;671:6;679;732:2;720:9;711:7;707:23;703:32;700:52;;;748:1;745;738:12;700:52;771:40;801:9;771:40;:::i;:::-;855:2;840:18;;834:25;761:50;;-1:-1:-1;;;;;;908:14:102;;;905:34;;;935:1;932;925:12;905:34;973:6;962:9;958:22;948:32;;1018:7;1011:4;1007:2;1003:13;999:27;989:55;;1040:1;1037;1030:12;989:55;1069:2;1063:9;1091:2;1087;1084:10;1081:36;;;1097:18;;:::i;:::-;1172:2;1166:9;1140:2;1226:13;;-1:-1:-1;;1222:22:102;;;1246:2;1218:31;1214:40;1202:53;;;1270:18;;;1290:22;;;1267:46;1264:72;;;1316:18;;:::i;:::-;1356:10;1352:2;1345:22;1391:2;1383:6;1376:18;1431:7;1426:2;1421;1417;1413:11;1409:20;1406:33;1403:53;;;1452:1;1449;1442:12;1403:53;1465:68;1530:2;1525;1517:6;1513:15;1508:2;1504;1500:11;1465:68;:::i;:::-;1552:6;1542:16;;;;;;;583:981;;;;;:::o;1569:225::-;1636:9;;;1657:11;;;1654:134;;;1710:10;1705:3;1701:20;1698:1;1691:31;1745:4;1742:1;1735:15;1773:4;1770:1;1763:15;1799:127;1860:10;1855:3;1851:20;1848:1;1841:31;1891:4;1888:1;1881:15;1915:4;1912:1;1905:15;1931:208;2001:6;2054:2;2042:9;2033:7;2029:23;2025:32;2022:52;;;2070:1;2067;2060:12;2022:52;2093:40;2123:9;2093:40;:::i;3374:287::-;3503:3;3541:6;3535:13;3557:66;3616:6;3611:3;3604:4;3596:6;3592:17;3557:66;:::i;:::-;3639:16;;;;;3374:287;-1:-1:-1;;3374:287:102:o;3666:396::-;3815:2;3804:9;3797:21;3778:4;3847:6;3841:13;3890:6;3885:2;3874:9;3870:18;3863:34;3906:79;3978:6;3973:2;3962:9;3958:18;3953:2;3945:6;3941:15;3906:79;:::i;:::-;4046:2;4025:15;-1:-1:-1;;4021:29:102;4006:45;;;;4053:2;4002:54;;3666:396;-1:-1:-1;;3666:396:102:o;:::-;564:1606:39;;;;;;",
+  "sourcePath": "contracts/openzeppelin-solidity/contracts/proxy/beacon/BeaconProxy.sol",
+  "type": "contract"
+}
